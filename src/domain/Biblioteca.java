@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Biblioteca {
     private ArrayList<Usuario> usuarios;
@@ -23,8 +24,9 @@ public class Biblioteca {
 
 
     public Livro buscarLivro(String titulo){
+        String tituloMinusculoDigitado = titulo.toLowerCase(Locale.getDefault());
     for(Livro livro: livros){
-        if (livro.getTitulo().equals(titulo)){
+        if (livro.getTitulo().toLowerCase(Locale.getDefault()).equals(tituloMinusculoDigitado)){
             return livro;
         }
     }

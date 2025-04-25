@@ -6,6 +6,11 @@ public class Usuario {
     private Livro livroAlugado;
 
 
+    public Usuario(String name){
+        this.name = name;
+    }
+
+
     public Usuario(String name, Livro livroAlugado) {
         this.name = name;
         this.livroAlugado = null;
