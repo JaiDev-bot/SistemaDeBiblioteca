@@ -5,12 +5,7 @@ public class Livro {
     private String autor;
     private boolean disponivel;
 
-
-    public Livro(String titulo){
-        this.titulo = titulo;
-    }
-
-    public Livro(String titulo, String autor, boolean disponivel){
+    public Livro(String titulo) {
         this.titulo = titulo;
         this.autor = autor;
         this.disponivel = true;

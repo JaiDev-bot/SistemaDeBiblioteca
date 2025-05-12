@@ -12,7 +12,7 @@ public class Main {
         Biblioteca biblioteca = new Biblioteca();
         Scanner scanner = new Scanner(System.in);
 
-        //add alguns livros e usuarios para teste
+
         biblioteca.adicionarLivro(new Livro("Os sete maridos de Evelyn Hugo"));
         biblioteca.adicionarLivro(new Livro("Sob a redoma"));
         biblioteca.adicionarLivro(new Livro("O cemitério"));
@@ -25,45 +25,49 @@ public class Main {
         biblioteca.adicionarUsuario(new Usuario("Anna"));
         biblioteca.adicionarUsuario(new Usuario("Jaiane"));
 
-        // interação com o usuario
-
-        while (true){
-            System.out.println("|[1] ALUGAR LIVRO   |");
-            System.out.println("|[2] DEVOLVER LIVRO |");
-            System.out.println("|[3] SAIR           |");
-            System.out.println("|-------------------|");
-            System.out.println("Escolha uma opcão: ");
+        // Iteração com o usuário
+        while(true){
+            System.out.println("******Sistema de Biblioteca DoBackAoFront******");
+            System.out.println("1 - Alugar Livro!");
+            System.out.println("2 - Devolver Livro!");
+            System.out.println("3 - Sair!");
+            System.out.println("Escolha uma das opções: ");
             int opcao = scanner.nextInt();
-            scanner.nextLine(); // consumir a nova linha
+            scanner.nextLine();
 
             if(opcao == 1){
-                System.out.println("digite o nome do usuario: ");
+                System.out.print("Digite o nome do usuário: ");
                 String nomeUsuario = scanner.nextLine();
                 Usuario usuario = biblioteca.buscarUsuario(nomeUsuario);
 
-                if (usuario != null){
-                    System.out.println(" digite o titulo do livro: ");
-                    String nomeLivro = scanner.nextLine();
-                    Livro livro = biblioteca.buscarLivro(nomeLivro);
+                if(usuario != null) {
+                    System.out.print("Digite o nome do livro: ");
+                    String tituloLivro = scanner.nextLine();
+                    Livro livro = biblioteca.buscarLivro(tituloLivro);
 
-                    if(livro!= null){
+                    if (livro != null) {
                         usuario.alugarLivro(livro);
-                    } else{
-                        System.out.println("livro  não encontrado");
+                    } else {
+                        System.out.println("Livro não encontrado!");
                     }
-
-                } else {
-                    System.out.println("usuario não encontrado");
                 }
+            }else if(opcao == 2){
+                System.out.print("Digite o nome do usuário: ");
+                String nomeUsuario = scanner.nextLine();
+                Usuario usuario = biblioteca.buscarUsuario(nomeUsuario);
 
-            } else if (opcao==3){
-                System.out.println("saindo...............");
+                if(usuario != null){
+                    usuario.devolverLivro();
+                }else {
+                    System.out.println("Usuário não encontrado!");
+                }
+            } else if (opcao == 3) {
+                System.out.println("Saindo...");
                 break;
-            }else{
-                System.out.println("opção invalida ");
+            }else {
+                System.out.println("Opção inválida.");
             }
         }
-
         scanner.close();
     }
 }

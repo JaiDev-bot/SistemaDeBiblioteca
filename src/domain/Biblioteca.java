@@ -15,7 +15,7 @@ public class Biblioteca {
     public void adicionarLivro(Livro livro){
         livros.add(livro);
         System.out.println(" Livro Adicionado: " + livro.getTitulo());
-        ;
+
     }
     public void adicionarUsuario(Usuario usuario){
         usuarios.add(usuario);
@@ -24,9 +24,9 @@ public class Biblioteca {
 
 
     public Livro buscarLivro(String titulo){
-        String tituloMinusculoDigitado = titulo.toLowerCase(Locale.getDefault());
+        String tituloMinusculoDigitado = titulo.toLowerCase();
     for(Livro livro: livros){
-        if (livro.getTitulo().toLowerCase(Locale.getDefault()).equals(tituloMinusculoDigitado)){
+        if (livro.getTitulo().toLowerCase().equals(tituloMinusculoDigitado)){
             return livro;
         }
     }

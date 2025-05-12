@@ -16,23 +16,23 @@ public class Usuario {
         this.livroAlugado = null;
     }
 
-    public void alugarLivro(Livro livro){
-        if(livro.isDisponivel()){
-        livroAlugado= livro;
-        livro.setDisponivel(false);
-            System.out.println(name + " alugou o " + livro.getTitulo());
-        }else{
-            System.out.println("o livro" + livro.getTitulo() + " não está disponível." );
+    public void alugarLivro(Livro livro) {
+        if (livro.isDisponivel()){
+            livroAlugado = livro;
+            livro.setDisponivel(false);
+            System.out.println(name + " alugou o livro: " + livro.getTitulo());
+        }else {
+            System.out.println("O livro " + livro.getTitulo() + " não está disponivel");
         }
     }
 
-    public void devolverLivro(){
-        if(livroAlugado!= null) {
+    public void devolverLivro() {
+        if (livroAlugado != null){
             livroAlugado.setDisponivel(true);
-            System.out.println(name + " devolveu o livro " + livroAlugado.getTitulo());
+            System.out.println(name + " devolvido o livro: " + livroAlugado.getTitulo());
             livroAlugado = null;
         }else {
-            System.out.println(name + " não tem livro para devolver");
+            System.out.println(name + " não tem nenhum livro a devolver.");
         }
     }
 
